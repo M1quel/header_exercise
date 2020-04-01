@@ -1,12 +1,17 @@
-window.onscroll = function() {myFunction()};
+var panelHeightOpen = "120px";
+var panelHeightClose = "0px";
+var btnList = document.querySelectorAll(".accordian-btn");
 
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
+for (i = 0; i < btnList.length; i++){
+  btnList[i].addEventListener("click", accordianfunc);
+}
 
-function myFunction() {
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
+function accordianfunc(){
+  this.classList.toggle("active");
+  var panel = this.nextElementSibling;
+  if (panel.style.height === panelHeightOpen){
+    panel.style.height = "0px";
+  }else{
+    panel.style.height = panelHeightOpen;
   }
 }
