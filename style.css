@@ -1,0 +1,129 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .top-container {
+    background-color: #f1f1f1;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .header {
+    padding: 10px 16px;
+    background: #555;
+    color: #f1f1f1;
+    /* Nemmere end at arbejde med js - tak til Thor*/
+    position: sticky;
+    top: 0;
+  }
+  
+  .content {
+    padding: 16px;
+    height: 200vh;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .sticky + .content {
+    padding-top: 102px;
+  }
+
+  @keyframes grow{
+    0% { transform: scale(1) translateY(0px)}
+    50% { transform: scale(1) translateY(-400px)}
+  }
+  #top-container:before{
+    content:"";
+    width:100%;
+    height:200%;
+    position:absolute;
+    top:0;
+    left:0;
+      -webkit-backface-visibility: hidden;
+      -webkit-transform: translateZ(0); backface-visibility: hidden;
+   /*scale var = scale(1.0,1.0);*/
+      scale: 1.0,1.0;
+      transform: translateZ(0);
+    background:#1B2030 url(https://images.unsplash.com/photo-1571993142257-eae0b44cf0f1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ) 50% 0 no-repeat;
+    background-size:100%;
+    background-attachment:fixed;
+    animation: grow 35s  linear 10ms infinite;
+    transition:all 0.4s ease-in-out;
+    z-index:-2
+  }
+  #top-container:after{
+    content:"";
+    width:100%;
+    height:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    z-index:-1;
+   background: linear-gradient(to bottom, rgba(0,0,0,0.12) 40%,rgba(27,32,48,1) 100%);
+  }
+  #top-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    overflow:hidden;
+    height:50vw;
+    min-height:400px;
+    max-height:550px;
+    min-width:300px;
+    color:#eee;
+  }
+  ul{
+    display: flex;
+    width: 100%;
+    margin: auto;
+    max-width: 1000px;
+    justify-content: space-between;
+    text-align: center;
+  }
+  li {
+    padding: 1rem 2rem 1.15rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #ebebeb;
+    min-width: 80px;
+    margin: auto;
+  }
+  li:hover {
+    background-image: url('https://cdn.pixabay.com/photo/2017/03/20/18/42/icons-2159956_960_720.jpg');
+    background-size: 100% 100%;
+    color: #27262c;
+    animation: spring 300ms ease-out;
+    transform-origin: center center;
+    text-shadow: 0 -1px 0 #ef816c;
+    font-weight: bold;
+  }
+  li:active {
+    transform: translateY(4px);
+  }
+  
+@keyframes spring {
+  15% { 
+    transform: scale(1.2, 1.1);
+  }
+  40% { 
+    transform: scale(0.95, 0.95);
+  }
+  75% { 
+    transform: scale(1.05, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
